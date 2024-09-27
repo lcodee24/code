@@ -70,7 +70,7 @@ function random_fun(e){
 
   let content = document.getElementsByClassName("content")[0]
    
-  let name = {ADANITTRANS: "NSE",ADANIGREEN: "NSE",WIPRO: "NSE",SADBHIN: "NSE",RADIOCITY: "NSE",HINDDAPAL: "BSE",CAPPL: "BSE",TATAELCTRONICS: "NSE",OLA: "BSE",ATHER: "BSE",RELIANCE: "NSE",INFOSYS: "NSE",HDFC: "BSE",SBI: "NSE",TCS: "NSE",NTPC: "BSE",KOTAKBANK: "NSE",AXISBANK: "BSE",HINDALCO: "NSE",ULTRACEMCO: "BSE",MARUTI: "NSE",BAJFINANCE: "BSE",LARSEN: "NSE",ONGC: "BSE",ASHOKLEY: "NSE"
+  let name = {ADANITTRANS: "NSE",HINDDAPAL: "BSE",CAPPL: "BSE",ADANIGREEN: "NSE",WIPRO: "NSE",TATAELCTRONICS: "NSE",OLA: "BSE",ATHER: "BSE",RELIANCE: "NSE",INFOSYS: "NSE",HDFC: "BSE",SBI: "NSE",TCS: "NSE",NTPC: "BSE",SADBHIN: "NSE",RADIOCITY: "NSE",KOTAKBANK: "NSE",AXISBANK: "BSE",HINDALCO: "NSE",ULTRACEMCO: "BSE",MARUTI: "NSE",BAJFINANCE: "BSE",LARSEN: "NSE",ONGC: "BSE",ASHOKLEY: "NSE"
   };
 
    let companies = []
@@ -468,8 +468,7 @@ option.addEventListener("click",filter)
 
 function filter(){
 
-   let content = document.getElementsByClassName("content")[0];
-   let right_nav = document.getElementsByClassName("right_nav")[0];
+   let opt_container = document.getElementsByClassName("opt_container")[0];
    let body = document.querySelector("body")
    body.style.backgroundColor = "lightgray"
 
@@ -489,14 +488,11 @@ function filter(){
 
       </div>
    `
-   content.innerHTML += opt
-
+   opt_container.innerHTML = opt
    
    let opt_box_remove = document.querySelector(".remove")
    opt_box_remove.addEventListener("click",remove)
 
-
-   
    let opt_box = document.querySelector(".opt_box");
    opt_box.classList.remove("remove_opt_box");
    opt_box.classList.add("show_opt_box");
@@ -505,11 +501,14 @@ function filter(){
    let btn_bse = document.querySelector(".btn_bse")
    btn_bse.addEventListener("click",filter_btn_bse)
 
+   let btn_nse = document.querySelector(".btn_nse")
+   btn_nse.addEventListener("click",filter_btn_nse)
+
+   let btn_clear = document.querySelector(".btn_clear")
+   btn_clear.addEventListener("click",filter_btn_clear)
+
    let az = document.querySelector(".btn_sort")
    az.addEventListener("click",alphabetically)
-
-
-
 
 }
 
@@ -544,7 +543,7 @@ function filter_btn_bse(){
    for(let [key,value] of Object.entries(bse)){
 
       company = `
-      <div class="low_priority_dicription">
+      <div class="low_priority_dicription btn_bse_discription">
           <div>
               <h4>${key}</h4>
               <h5>${value}</h5>
@@ -557,8 +556,9 @@ function filter_btn_bse(){
   `;
     companies.push(company)
    }
-   
+
    content.innerHTML = companies.join("");
+   content.innerHTML += opt
 
    let body = document.querySelector("body");
    body.style.backgroundColor = "white";
@@ -577,6 +577,60 @@ function filter_btn_bse(){
 }
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function filter_btn_nse(){
+
+   let content = document.getElementsByClassName("content")[0];
+    let bse = {}
+
+    for(let [key,val] of Object.entries(search_obj)){
+        
+        if(val === "NSE"){
+            bse[key] = val
+        }
+    }
+
+   let companies = []
+
+   for(let [key,value] of Object.entries(bse)){
+
+      company = `
+      <div class="low_priority_dicription btn_nse_discription">
+          <div>
+              <h4>${key}</h4>
+              <h5>${value}</h5>
+          </div>
+          <div class="btn_container">
+              <button class="show_btn" data-key="${key}" data-value="${value}">Show</button>
+              <button class="add_btn" data-key="${key}" data-value="${value}">Add</button>
+          </div>
+      </div>
+  `;
+    companies.push(company)
+   }
+
+   content.innerHTML = companies.join("");
+   content.innerHTML += opt
+
+   let body = document.querySelector("body");
+   body.style.backgroundColor = "white";
+   
+   
+   let add_btn = document.querySelectorAll(".add_btn")
+   add_btn.forEach((btn)=>{
+   btn.addEventListener("click",add_my_list)
+
+   let show_btn = document.querySelectorAll(".show_btn")
+   show_btn.forEach((btn)=>{
+   btn.addEventListener("click",show_detail)
+   })
+   })
+}
+
+function filter_btn_clear(e){
+     random_fun(e)
+}
 
 
 
@@ -599,10 +653,8 @@ function alphabetically(){
    for(let sort_key of unsort_arr){
         key = sort_key
         value = search_obj[sort_key]
-
         sort_obj[sort_key] = value;
     }
-
                      
    let companies = []
    for(let [key,value] of Object.entries(sort_obj)){
@@ -629,9 +681,7 @@ function alphabetically(){
 
     console.log(sort_obj)
 
-
     let add_btn = document.querySelectorAll(".add_btn")
-    //console.log(add_btn)
     add_btn.forEach((btn)=>{
     btn.addEventListener("click",add_my_list)
 
@@ -641,4 +691,3 @@ function alphabetically(){
     })
     })
 }
-
