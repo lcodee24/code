@@ -1,18 +1,91 @@
 document.getElementsByClassName('left_nav_expand')[0].addEventListener("click",navexpand)
 
+
 function navexpand(){
     let left_nav = document.getElementsByClassName("left_nav")[0]
     let nav_content = document.getElementsByClassName("nav_content")[0]
-    if(left_nav.style.width == "3%"){
-       left_nav.style.width = "12%"  
+    if(left_nav.style.width == "47px"){
+       left_nav.style.width = "150px"  
        nav_content.style.gap = "10px"
     }
     else{
-      left_nav.style.width = "3%"  
+      left_nav.style.width = "47px"  
     }     
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+right_nav_ul_menu_bar = document.querySelector(".right_nav_ul_menu_bar")
+
+right_nav_ul_menu_bar.addEventListener("click",right_nav_show)
+
+function right_nav_show(){
+
+let display_right_nav = document.querySelector(".display_right_nav")
+
+  console.log("right_nav")
+   
+
+let right_nav_ul = `
+ 
+              <ul class="display_right_nav_ul">
+                  <li class="display_right_nav_ul_li"><a class="d_my_list      " href="">My list</a></li>
+                  <li class="display_right_nav_ul_li"><a class="d_random       " href="">Random</a></li>
+                  <li class="display_right_nav_ul_li"><a class="d_must_watch   " href="">Must watch</a></li>
+                  <li class="display_right_nav_ul_li"><a class="d_passive      " href="">Passive</a></li>
+                  <li class="display_right_nav_ul_li"><a class="d_low_priority " href="">Low priority</a></li>  
+                </ul>  
+
+`
+display_right_nav.innerHTML = right_nav_ul 
+
+let d_must_watch = document.getElementsByClassName("d_must_watch")[0]
+    if (d_must_watch) {
+        d_must_watch.addEventListener("click", (e)=>{
+          e.preventDefault(); 
+          must_watch_fun(e)
+        })
+    }
+
+let d_my_list = document.getElementsByClassName("d_my_list")[0]
+    if (d_my_list) {
+          d_my_list.addEventListener("click", (e)=>{
+          e.preventDefault(); 
+          my_list_fun(e)
+        })
+    }    
+
+    let d_random = document.getElementsByClassName("d_random")[0]
+    if (d_random) {
+          d_random.addEventListener("click", (e)=>{
+          e.preventDefault(); 
+          random_fun(e)
+        })
+    }    
+
+    let d_passive = document.getElementsByClassName("d_passive")[0]
+    if (d_passive) {
+          d_passive.addEventListener("click", (e)=>{
+          e.preventDefault(); 
+          passive_fun(e)
+        })
+    }   
+
+    let d_low_priority = document.getElementsByClassName("d_low_priority")[0]
+    if (d_low_priority) {
+      d_low_priority.addEventListener("click", (e)=>{
+          e.preventDefault(); 
+          low_priority_fun(e)
+        })
+    }   
+    
+}
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 let must_watch = document.getElementsByClassName("must_watch")[0]
 must_watch.addEventListener("click",must_watch_fun)
@@ -691,3 +764,6 @@ function alphabetically(){
     })
     })
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

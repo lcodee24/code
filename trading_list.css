@@ -23,7 +23,7 @@ body{
 }
 
 .left_nav{
-  width:3%;
+  width:47px;
   height:100%;
   overflow:hidden;
   display: flex;
@@ -115,6 +115,7 @@ body{
    width:93%;
    height:5%;
    display: flex;
+   position: relative;
 }
 .right_nav .search input{
   width:97%;
@@ -140,7 +141,7 @@ body{
 }
 .right_nav .search .options{
   width:3%;
-  height:100%;
+  height:5%;
   text-align: center;
   align-content: center;
   border-right: 2px solid black;
@@ -148,10 +149,11 @@ body{
   border-bottom: 2px solid black;
   border-top-right-radius:5px;
   border-bottom-right-radius:5px;
-
+  position:fixed;
+  right:100px;
 }
 .right_nav .search .options [name="options-outline"]{
-  font-size: 36px;
+  font-size:30px;
 }
 .right_nav .search input::placeholder{
   font-size: 18px;
@@ -460,3 +462,366 @@ border:2px solid indianred;
  color:gold;
 }
 
+/* //////// */
+
+.right_nav_ul_menu{
+  display: none;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+
+.display_right_nav{
+  width:100%;
+  height:100%;
+}
+
+.display_right_nav_ul{
+  width:20%;
+  height:50%;
+  position:fixed;
+  top:50px;
+  right:20px;
+  background-color:white;
+  border: 1px solid gold;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+
+}
+.display_right_nav_ul_li{
+  list-style:none;
+
+}
+.display_right_nav_ul_li a{
+  text-decoration: none;
+
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   */
+
+
+/* media query */
+
+
+@media screen and (max-width:1600px){
+  .right_nav .search .options{
+    right:119px;
+  }
+  
+}
+
+@media screen and (max-width:1502px){
+  .right_nav .search .options{
+    right:124px;
+  }
+  
+}
+
+@media screen and (max-width:1450px){
+  .right_nav .search .options{
+    right:110px;
+  }
+  
+}
+
+@media screen and (max-width:1350px){
+  .right_nav .search .options{
+    right:100px;
+  }
+  
+}
+
+@media screen and (max-width:1037px){
+  .right_nav .search .options{
+    right:80px;
+  }
+  
+}
+
+@media screen and (max-width:920px){
+  .right_nav .search input{
+    width:95%;
+    height:100%;
+  }
+  .right_nav .search .options{
+    width:5%;
+    height:5%;
+    right:80px;
+    padding-right:20px;
+  }
+  .right_nav .search .options [name="options-outline"]{
+    margin-right:50px;
+  }
+}
+
+@media screen and (max-width:761px){
+  .right_nav .search .options{
+    right:50px;
+  }
+  
+}
+
+@media screen and (max-width:575px){
+  .right_nav .search .options{
+    right:40px;
+    padding-right:40px;
+  }
+
+  .right_nav_ul_li{
+    display: none;
+  }
+  .right_nav_ul_menu{
+    display: flex;
+    position: relative;
+  }
+
+  .right_nav_ul_menu [name="menu-outline"]{
+    position:absolute;
+    right:10px;
+    top:-20px;
+    font-size:35px;
+  }
+  
+}
+
+@media screen and (max-width:465px){
+  .right_nav .search .options{
+    right:25px;
+    padding-right:40px;
+  }
+  
+}
+
+.right_nav_ul_menu{
+  width:100%;
+  height: 5%;
+}
+
+
+@media screen and (max-width:550px){
+  .display_right_nav{
+    width:100%;
+    height:100%;
+  }
+  
+  .display_right_nav_ul{
+    width:25%;
+    height:50%;
+    position:fixed;
+    top:50px;
+    right:30px;
+  }
+  
+}
+
+@media screen and (max-width:440px){
+  .display_right_nav{
+    width:100%;
+    height:100%;
+  }
+  
+  .display_right_nav_ul{
+    width:27%;
+    height:50%;
+    position:fixed;
+    top:50px;
+    right:15px;
+  }
+}
+
+@media screen and (max-width:390px){
+  .show_btn , .add_btn , .btn_del{
+    padding:4px 6px; 
+  } 
+}
+
+@media screen and (max-width:1350px){
+  .opt_box{
+    width:88%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:50px;
+  }
+  .remove{
+    width:3%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+
+}
+
+@media screen and (max-width:970px) {
+  .remove{
+    width:4%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+}
+
+@media screen and (max-width:884px){
+  .opt_box{
+    width:88%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:40px;
+  }
+  .remove{
+    width:5%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:30%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:62%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:648px){
+  .opt_box .sort{
+    width:40%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:70%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:600px){
+  .opt_box{
+    width:83%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:40px;
+  }
+  .remove{
+    width:6%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:50%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:74%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width:500px) {
+  .remove{
+    width:7%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:55%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:76%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:435px){
+  .opt_box{
+    width:78%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:40px;
+  }
+  .remove{
+    width:8%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:60%;
+    height:50%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .opt_box .sort button{
+    width:80%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:340px){
+  .opt_box{
+    width:73%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:40px;
+  }
+  .remove{
+    width:9%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:65%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:70%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width:330px){
+  .opt_box{
+    width:73%;
+    height:30%;
+    position:fixed;
+    top:490px;
+    left:40px;
+  }
+  .remove{
+    width:10%;
+    height:12%;
+    border-top-right-radius:5px;
+  }
+  .opt_box .sort{
+    width:75%;
+    height:50%;
+  }
+  .opt_box .sort button{
+    width:70%;
+    height:35%;
+    font-size: 18px;
+  }
+}
+
+
+@media screen and (max-width:765px){
+  
+.left_nav{
+  width:47px;
+  height:100%;
+}
+
+.right_nav{
+  width:100%;
+  height:100%;
+  position: relative;
+}
+}
